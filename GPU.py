@@ -126,6 +126,13 @@ network.summary()
 
 
 # training
+from tensorflow.python.client import device_lib
+print(device_lib.list_local_devices())
+
+gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.9)
+with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options,log_device_placement=True),graph=detection_graph) as sess:
+with tf.device("/gpu:0"):
+
 optimizer = optimizers.SGD(lr=0.01)  # Batch Gradient Descent Learning rate=0.01
 acc_meter = metrics.Accuracy()
 x_step = []
