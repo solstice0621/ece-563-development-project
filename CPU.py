@@ -144,5 +144,5 @@ for step, (x, y) in enumerate(db):
         print('Step', step, ': Loss is: ', float(loss), ' Accuracy: ', acc_meter.result().numpy())
         x_step.append(step)
         y_accuracy.append(acc_meter.result().numpy())
-        acc_meter.reset_states()
+        acc_meter.reset_states() 
 
